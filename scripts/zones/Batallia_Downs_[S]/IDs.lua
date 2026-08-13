@@ -76,7 +76,15 @@ zones[xi.zone.BATALLIA_DOWNS_S] =
     npc =
     {
         CAMPAIGN_NPC_OFFSET = GetFirstID('Myllue_RK'), -- San, Bas, Win, Flag +4, CA
-        RAMPART_GATE_OFFSET = GetFirstID('_2c1'),
+        -- Not sequential: _2c3 is the last of these ids, not the third.
+        RAMPART_GATES =
+        {
+            GetFirstID('_2c1'),
+            GetFirstID('_2c2'),
+            GetFirstID('_2c3'),
+            GetFirstID('_2c4'),
+            GetFirstID('_2c5'),
+        },
     },
 }
 

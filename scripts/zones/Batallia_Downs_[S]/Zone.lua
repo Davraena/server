@@ -6,15 +6,6 @@ local ID = zones[xi.zone.BATALLIA_DOWNS_S]
 ---@type TZone
 local zoneObject = {}
 
-local rampartTable =
-{
-    [1] = ID.npc.RAMPART_GATE_OFFSET,
-    [2] = ID.npc.RAMPART_GATE_OFFSET + 1,
-    [3] = ID.npc.RAMPART_GATE_OFFSET + 2,
-    [4] = ID.npc.RAMPART_GATE_OFFSET + 3,
-    [5] = ID.npc.RAMPART_GATE_OFFSET + 4,
-}
-
 zoneObject.onInitialize = function(zone)
     zone:registerCylindricalTriggerArea(1, 321.762, -194.744, 15)
     zone:registerCylindricalTriggerArea(2, 327.975, -118.794, 15)
@@ -49,7 +40,7 @@ zoneObject.onTriggerAreaEnter = function(player, triggerArea)
         return
     end
 
-    local gate = GetNPCByID(rampartTable[triggerArea])
+    local gate = GetNPCByID(ID.npc.RAMPART_GATES[triggerArea:getTriggerAreaID()])
     if gate then
         gate:openDoor(9)
     end
